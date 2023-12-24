@@ -14,7 +14,24 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let response=[]
+  let categoreyWiseResponse={}
+  for( let transaction of transactions)
+  {
+    if(! (transaction['category'] in categoreyWiseResponse) )
+    {
+      categoreyWiseResponse[transaction['category']]=transaction['price'];
+    }
+    else{
+      categoreyWiseResponse[transaction['category']]=categoreyWiseResponse[transaction['category']] + transaction['price'];
+    }
+
+  }
+  for ( let categoryWiseTransaction in categoreyWiseResponse)
+  {
+    response.push({"category":categoryWiseTransaction,"totalSpent":categoreyWiseResponse[categoryWiseTransaction]});
+  }
+  return response;
 }
 
 module.exports = calculateTotalSpentByCategory;

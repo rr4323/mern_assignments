@@ -1,4 +1,7 @@
+console.log("all")
 const isAnagram = require('../easy/anagram');
+
+
 
 describe('isAnagram', () => {
 	test('returns true for anagrams', () => {
